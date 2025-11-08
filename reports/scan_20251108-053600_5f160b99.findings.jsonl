@@ -1,0 +1,5 @@
+{"severity": "INFO", "category": "Headers", "url": "http://testphp.vulnweb.com/", "param": "-", "evidence": "Missing header: Content-Security-Policy"}
+{"severity": "INFO", "category": "Headers", "url": "http://testphp.vulnweb.com/", "param": "-", "evidence": "Missing header: X-Content-Type-Options"}
+{"severity": "INFO", "category": "Headers", "url": "http://testphp.vulnweb.com/", "param": "-", "evidence": "Missing header: X-Frame-Options"}
+{"severity": "INFO", "category": "Headers", "url": "http://testphp.vulnweb.com/", "param": "-", "evidence": "Missing header: Referrer-Policy"}
+{"severity": "INFO", "category": "Headers", "url": "http://testphp.vulnweb.com/", "param": "-", "evidence": "Missing header: Strict-Transport-Security"}

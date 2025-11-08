@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Reports
+reports/*.json
+reports/*.html
+
+# Third-party payloads
+third_party/

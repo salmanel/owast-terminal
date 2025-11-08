@@ -1,0 +1,82 @@
+# config.yaml — default configuration
+
+scanner:
+  user_agent: "MiniOWASP/1.0 (+https://github.com/salmanel/owasp-tester-terminal)"
+  timeout_seconds: 15
+  verify_ssl: true
+  follow_redirects: true
+  follow_redirect_hosts: false
+  same_host_only: true
+  max_depth: 2
+  max_pages: 50
+  delay_ms: 200
+  retries: 1
+  backoff_factor: 0.25
+
+exclusions:
+  paths:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".gif"
+    - ".css"
+    - ".js"
+    - ".woff"
+    - ".woff2"
+    - ".ttf"
+    - ".svg"
+    - ".ico"
+    - ".pdf"
+    - "mailto:"
+    - "javascript:"
+
+modules:
+  headers: true
+  xss: true
+  sqli: true
+  access_control: true
+  csrf: true
+  open_redirect: true
+  traversal: true
+  ssrf: true
+  misconfig: true
+  auth_id: true
+  integrity: true
+  outdated_components: true
+
+payloads:
+  xss_reflected:
+    - "<svg onload=alert(1)>"
+    - "\"><img src=x onerror=alert(1)>"
+  sqli_basic:
+    - "' OR '1'='1"
+    - "' UNION SELECT 1--"
+    - "\" OR 1=1--"
+  open_redirect:
+    params: ["next","url","redirect","return","dest","path","continue"]
+    sinks: ["//evil.tld","/\\evil","%2f%2fevil.tld"]
+  traversal:
+    params: ["file","path","dir","page","include","template","document"]
+    fuzz:
+      - "../../../../etc/passwd"
+      - "..%2f..%2fetc%2fpasswd"
+      - "..\\..\\..\\..\\windows\\win.ini"
+      - "../"
+  ssrf:
+    params: ["url","uri","dest","u","target","feed","image","load","fetch"]
+    harmless_oracles:
+      - "http://127.0.0.1:81"
+  csrf:
+    token_names: ["csrf","xsrf","_csrf","__requestverificationtoken","_token"]
+headers_required:
+  - "Content-Security-Policy"
+  - "X-Content-Type-Options"
+  - "X-Frame-Options"
+  - "Referrer-Policy"
+  - "Strict-Transport-Security"
+
+report:
+  json: true
+  html: true
+  save_hashes: false
+  csv: true
