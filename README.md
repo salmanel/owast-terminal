@@ -53,7 +53,7 @@ owasp-tester-terminal/
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/<your-org>/owasp-tester-terminal.git
+git clone https://github.com/salmanel/owasp-tester-terminal.git
 cd owasp-tester-terminal
 python3 -m venv .venv
 source .venv/bin/activate
